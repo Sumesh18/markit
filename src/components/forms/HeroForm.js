@@ -72,7 +72,7 @@ export default function HeroForm({ user }) {
                     id="markitForm"
                     onSubmit={handleSubmit}
                     className="inline-flex items-center justify-center bg-white shadow-lg shadow-gray-700/50 p-1 rounded-full">
-                    <span className="bg-white text-black font-bold py-4 pl-2 text-lg rounded-full">markit.to/</span>
+                    <span className="bg-white text-black font-bold py-4 pl-2 text-lg rounded-full">markit/</span>
                     <input
                         type="text"
                         style={{ backgroundColor: 'white', marginBottom: 0, paddingLeft: 0, outline: 'none', color: "#333" }}
