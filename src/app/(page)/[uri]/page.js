@@ -1,6 +1,6 @@
 import { Page } from "@/models/Page";
 import { User } from "@/models/User";
-import { faEnvelope, faExclamationTriangle, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faEnvelope, faExclamationTriangle, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGithub, faInstagram, faLinkedin, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import mongoose from "mongoose"
@@ -37,22 +37,22 @@ export default async function UserPage({ params }) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400 text-gray-800 p-8">
                 <div className="flex flex-col items-center justify-center border-4 bg-gray-300 p-16 rounded-md">
-                <FontAwesomeIcon icon={faExclamationTriangle} className="text-red-500 text-6xl mb-4 w-6 h-6" />
-                <h1 className="text-3xl font-bold text-red-600 mb-2">User Not Found</h1>
-                <p className="text-lg text-gray-600 text-center max-w-md mb-6">
-                    We could not find a profile associated with the username <strong>{uri}</strong>.
-                    Please check the username and try again.
-                </p>
-                <Link href="/" className="px-6 py-3 bg-blue-600 hover:bg-lime-600 text-white rounded-lg shadow transition-transform transform hover:scale-105 duration-200 ease-in-out">
-                    Go to Homepage
-                </Link>
+                    <FontAwesomeIcon icon={faExclamationTriangle} className="text-red-500 text-6xl mb-4 w-6 h-6" />
+                    <h1 className="text-3xl font-bold text-red-600 mb-2">User Not Found</h1>
+                    <p className="text-lg text-gray-600 text-center max-w-md mb-6">
+                        We could not find a profile associated with the username <strong>{uri}</strong>.
+                        Please check the username and try again.
+                    </p>
+                    <Link href="/" className="px-6 py-3 bg-blue-600 hover:bg-lime-600 text-white rounded-lg shadow transition-transform transform hover:scale-105 duration-200 ease-in-out">
+                        Go to Homepage
+                    </Link>
                 </div>
             </div>
         );
     }
     const user = await User.findOne({ email: page.owner })
 
-    await Event.create({uri:uri, page: uri, type: "view"});
+    await Event.create({ uri: uri, page: uri, type: "view" });
 
     return (
         <div className="bg-gradient-to-tl from-lime-300 to-yellow-400 text-white min-h-screen">
@@ -64,6 +64,10 @@ export default async function UserPage({ params }) {
                             backgroundImage: `url(${page.bgImage})`
                         }}
             >
+                <Link href={"/"} className="flex items-center gap-2 text-md text-gray-600 border-t ml-4 pt-4">
+                    <FontAwesomeIcon icon={faArrowLeft} className="w-4 h-4 text-black" />
+                    <span>Back to website</span>
+                </Link>
             </div>
             <div className="aspect-square w-48 h-48 mx-auto relative -top-16 -mb-12">
                 <Image

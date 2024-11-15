@@ -49,7 +49,8 @@ export default function HeroForm({ user }) {
             } else {
                 <h1>User not found</h1>
                 window.localStorage.setItem('desiredUsername', username);
-                await signIn('google');
+                // await signIn('google');
+                router.push('/login');
             }
         }
     }
